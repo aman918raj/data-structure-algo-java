@@ -75,6 +75,66 @@ public class DoublyLinkedList {
         return temp;
     }
 
+    public Node get(int index){
+        if (index >= this.length || index < 0){
+            return null;
+        }
+        if (index == 0) return this.head;
+        if (index == this.length - 1) return this.tail;
+        if (index == 1) return this.head.next;
+        Node temp = this.head;
+        if (index < this.length / 2){
+            for(int i = 0; i < index; i++){
+                temp = temp.next;
+            }
+        }else {
+            temp = this.tail;
+            for (int i = this.length - 1; i > index; i--){
+                temp = temp.prev;
+            }
+        }
+        return temp;
+    }
+
+    public boolean setValue(int index, int value){
+        Node temp = this.get(index);
+        if (temp != null){
+            temp.value = value;
+            return true;
+        }
+        return false;
+    }
+
+    public boolean insert(int index, int value){
+        if (index > this.length || index < 0){
+            return false;
+        }
+        if (index == 0) return this.prepend(value);
+        if (index == this.length) return this.append(value);
+
+        Node newNode = new Node(value);
+        Node temp = this.get(index - 1);
+        newNode.next = temp.next;
+        temp.next = newNode;
+        this.length += 1;
+        return true;
+    }
+
+    public Node remove(int index){
+        if (index >= this.length || index < 0){
+            return null;
+        }
+        if (index == 0) return this.pop();
+        if (index == this.length - 1) return this.pop_first();
+        Node temp = this.get(index);
+        temp.next.prev = temp.prev;
+        temp.prev.next = temp.next;
+        temp.next = null;
+        temp.prev = null;
+        this.length -= 1;
+        return  temp;
+    }
+
     public void print_values(){
         if (this.length == 0) System.out.println("No elements in list");
         Node temp = this.head;

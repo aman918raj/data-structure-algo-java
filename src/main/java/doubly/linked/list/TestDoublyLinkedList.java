@@ -27,6 +27,16 @@ public class TestDoublyLinkedList {
         System.out.println(dbl.pop_first().value);
         System.out.println("---print list-----");
         dbl.print_values();
+        System.out.println("-------get--------");
+        System.out.println(dbl.get(2).value);
+        System.out.println("-------set--------");
+        dbl.setValue(2,5);
+        System.out.println("---print list-----");
+        dbl.print_values();
+        System.out.println("--------insert-----------");
+        dbl.insert(1,9);
+        System.out.println("---print list-----");
+        dbl.print_values();
 
     }
 }
