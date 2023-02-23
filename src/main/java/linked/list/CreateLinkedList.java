@@ -118,12 +118,44 @@ public class CreateLinkedList {
         this.length += 1;
         return true;
     }
-    /*
+
     public Node remove(int index){
         if(index >= this.length || index < 0){
-
+            return null;
         }
-    }*/
+        if(index == 0) return popFirst();
+        if (index == this.length - 1)  return pop();
+        Node prev = get(index - 1);
+        Node temp = prev.next;
+        prev.next = temp.next;
+        temp.next = null;
+        this.length -= 1;
+        return temp;
+    }
+
+    public void reverse(){
+        Node temp = this.head;
+        Node before = null;
+        Node after = temp.next;
+        this.head = this.tail;
+        this.tail = temp;
+        for(int i = 0; i < this.length; i++){
+            after = temp.next;
+            temp.next = before;
+            before = temp;
+            temp = after;
+        }
+    }
+
+    public Node middleElement(){
+        Node slow = this.head;
+        Node fast = this.head;
+        while (fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
+    }
 
     public void print_values(){
         if(this.length == 0){

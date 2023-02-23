@@ -28,5 +28,13 @@ public class TestList {
         System.out.println("----------");
         System.out.println(linkedList.insert(1, 7));
         linkedList.print_values();
+        System.out.println("----------");
+        System.out.println(linkedList.remove(2).value);
+        linkedList.print_values();
+        System.out.println("----------");
+        linkedList.reverse();
+        linkedList.print_values();
+        System.out.println("----------");
+        System.out.println(linkedList.middleElement().value);
     }
 }
