@@ -3,14 +3,14 @@ package recursion;
 public class Factorial {
 
 
-    public static int factorialTailRecurrsion(int n, int a){
+    public static int factorialTailRecursion(int n, int a){
 
         if (n <= 0) return a;
-        return factorialTailRecurrsion( n-1, n * a);
+        return factorialTailRecursion( n-1, n * a);
     }
 
     public static int factTR(int n){
-        return factorialTailRecurrsion(n, 1);
+        return factorialTailRecursion(n, 1);
     }
 
     public static int factorial(int n){
