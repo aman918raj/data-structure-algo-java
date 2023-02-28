@@ -1,4 +1,4 @@
-package ds.stacks;
+package stack;
 
 public class Stack {
 
