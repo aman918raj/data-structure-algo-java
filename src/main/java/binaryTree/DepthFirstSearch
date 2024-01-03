@@ -23,10 +23,10 @@ class DepthFirstSearch {
         }
 
         if (node.left != null) {
-            preOrderTraversal(node.left);
+            postOrderTraversal(node.left);
         }
         if (node.right != null) {
-            preOrderTraversal(node.right);
+            postOrderTraversal(node.right);
         }
         System.out.println(node.data);
     }
@@ -37,13 +37,13 @@ class DepthFirstSearch {
         }
 
         if (node.left != null) {
-            preOrderTraversal(node.left);
+            inOrderTraversal(node.left);
         }
 
         System.out.println(node.data);
 
         if (node.right != null) {
-            preOrderTraversal(node.right);
+            inOrderTraversal(node.right);
         }
     }
 
